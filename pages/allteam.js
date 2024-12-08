@@ -1,22 +1,23 @@
-'use client'
 
-import { useState, useEffect } from 'react'
+'use client'
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
+import { API } from "@the-orange-alliance/api";
+
 
 export default function AllTeams() {
-  const [teams, setTeams] = useState([])
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(null)
+  const [teams, setTeams] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const ORANGE_ALLIANCE_API_KEY = "EElBgh3bJ/qwzVORJWPHnj4GzKD0K4B8Q24euT//FEU=";
+  const toa = new API(ORANGE_ALLIANCE_API_KEY, "ftc-scouting-database");
 
   useEffect(() => {
     async function fetchTeams() {
       try {
-        const response = await fetch('/api/orange-alliance-teams')
-        if (!response.ok) {
-          throw new Error('Failed to fetch teams')
-        }
-        const data = await response.json()
-        setTeams(data)
-        setLoading(false)
+        const data = await toa.getTeams();
+        setTeams(data);
+        setLoading(false);
       } catch (err) {
         setError(err.message)
         setLoading(false)

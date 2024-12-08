@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 
 export default function Home() {
   const [teams, setTeams] = useState([]);
@@ -37,7 +38,7 @@ export default function Home() {
     });
 
     if (res.ok) {
-      setTeams(teams.filter(team => team._id !== id));  // Remove deleted team from UI
+      setTeams(teams.filter((team) => team._id !== id));
     } else {
       console.log('Failed to delete team');
     }
@@ -46,6 +47,9 @@ export default function Home() {
   return (
     <div>
       <h1>FTC Scouting Database</h1>
+      {/* Correct Link Implementation */}
+      <Link href="/allteam">View All Teams</Link>
+
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -60,6 +64,7 @@ export default function Home() {
         />
         <button type="submit">Add Team</button>
       </form>
+
       <h2>Teams</h2>
       <ul>
         {teams.map((team) => (
@@ -72,3 +77,4 @@ export default function Home() {
     </div>
   );
 }
+
