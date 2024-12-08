@@ -9,11 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-<<<<<<< Updated upstream
-=======
-    "@the-orange-alliance/api": "^0.24.1",
-    "express": "^4.21.2",
->>>>>>> Stashed changes
     "mongoose": "^8.8.3",
     "next": "15.0.3",
     "react": "19.0.0-rc-66855b96-20241106",
