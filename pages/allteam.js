@@ -14,8 +14,14 @@ export default function AllTeams() {
   useEffect(() => {
     async function fetchTeams() {
       try {
-        const data = await toa.getTeams();
-        setTeams(data);
+        var temp = await toa.getEventTeams("2425-VA-HAQ3");
+       // temp = temp.filter( (event) => event.eventKey.includes("2425-VA"));
+        console.log("teams",temp)
+        //var data = await toa.getTeams();
+        //console.log(data)
+        //data = data.filter( (team) => team.lastActive.includes("2425"))
+        //console.log(data)
+        setTeams(temp);
         setLoading(false);
       } catch (err) {
         setError(err.message)
@@ -38,10 +44,10 @@ export default function AllTeams() {
     <div>
       <h1>All FTC Teams</h1>
       <ul>
-        {teams.map((team) => (
-          <li key={team.teamNumber}>
-            <strong>{team.teamNameShort}</strong> (#{team.teamNumber})
-            <p>Location: {team.city}, {team.country}</p>
+        {teams.map((EventParticipant) => (
+          <li key={EventParticipant.team.teamNumber}>
+                        <strong>{EventParticipant.team.teamNameLong} ({EventParticipant.team.teamNameShort})</strong> (#{EventParticipant.team.teamNumber})
+                        <p>Location: {EventParticipant.team.city}, {EventParticipant.team.country}</p>
           </li>
         ))}
       </ul>
