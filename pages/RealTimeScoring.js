@@ -30,21 +30,18 @@ export default function RealTimeScoring() {
   const team2TotalScore = team2Score - team2Penalties;
 
   return (
-    <div>
+    (<div>
       <h1>Real-Time Scoring for FTC 2025: Into the Deep</h1>
-
       {/* Team 1 Score and Penalties */}
       <div>
         <h2>Team 1 Score: {team1TotalScore}</h2>
         <h3>Team 1 Penalties: {team1Penalties}</h3>
       </div>
-
       {/* Team 2 Score and Penalties */}
       <div>
         <h2>Team 2 Score: {team2TotalScore}</h2>
         <h3>Team 2 Penalties: {team2Penalties}</h3>
       </div>
-
       {/* Autonomous Period Scoring Buttons */}
       <h3>Autonomous Period</h3>
       <button onClick={() => updateScore(1, 2)}>Team 1 - Net Zone Sample (2)</button>
@@ -61,7 +58,6 @@ export default function RealTimeScoring() {
       <button onClick={() => updateScore(2, 3)}>Team 2 - Observation Zone (3)</button>
       <button onClick={() => updateScore(1, 3)}>Team 1 - Level 1 Ascent (3)</button>
       <button onClick={() => updateScore(2, 3)}>Team 2 - Level 1 Ascent (3)</button>
-
       {/* Teleoperated Period Scoring Buttons */}
       <h3>Teleoperated Period</h3>
       <button onClick={() => updateScore(1, 3)}>Team 1 - Net Zone Sample (3)</button>
@@ -82,19 +78,17 @@ export default function RealTimeScoring() {
       <button onClick={() => updateScore(2, 15)}>Team 2 - Level 2 Ascent (15)</button>
       <button onClick={() => updateScore(1, 30)}>Team 1 - Level 3 Ascent (30)</button>
       <button onClick={() => updateScore(2, 30)}>Team 2 - Level 3 Ascent (30)</button>
-
       {/* Penalty Buttons */}
       <h3>Penalties</h3>
       <button onClick={() => updatePenalties(1, 5)}>Team 1 - Minor Foul (-5)</button>
       <button onClick={() => updatePenalties(2, 5)}>Team 2 - Minor Foul (-5)</button>
       <button onClick={() => updatePenalties(1, 15)}>Team 1 - Major Foul (-15)</button>
       <button onClick={() => updatePenalties(2, 15)}>Team 2 - Major Foul (-15)</button>
-
       {/* Link back to the Home page */}
       <Link href="/">
-        <a>Back to Home</a>
+        Back to Home
       </Link>
-    </div>
+    </div>)
   );
 }
 

@@ -95,7 +95,6 @@ export default function Home() {
       <Link href="/allteam">View All Teams</Link>
       
       {/* Link to the Live Scoring page */}
-      console.log('RealTimeScoring page is loaded!');
       <Link href="/RealTimeScoring">Go to Live Scoring</Link>
 
       {error && <p style={{ color: 'red' }}>{error}</p>}  {/* Display any error messages */}
